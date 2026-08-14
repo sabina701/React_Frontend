@@ -1,0 +1,64 @@
+.detail-image {
+  height: 500px;
+  width: 430px;
+  padding: 50px;
+  object-fit: cover;
+}
+.detail-center {
+  /* margin-left:10px ; */
+  padding: 50px;
+}
+.heading2 {
+  font-size: 34px;
+  font-weight: 500;
+}
+.price {
+  color: orange;
+  font-size: 35px;
+  margin-top: 5px;
+}
+.strike-price {
+  text-decoration: line-through;
+  font-size: 20px;
+}
+.my-btns {
+  background-color: rgb(14, 14, 179);
+  color: White;
+  height: 40px;
+  width: 40px;
+  margin-top: 15px;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.detail-buy-btn {
+  background-color: aqua;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: black;
+  margin-top: 19px;
+}
+.detail-cart-btn {
+  background-color: orange;
+  height: 50px;
+  width: 120px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: black;
+  margin-left: 10px;
+}
+.delivery {
+  border: 2px solid gray;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+.return-warranty {
+  border: 2px solid gray;
+  margin-top: 50px;
+  border-radius: 10px;
+}

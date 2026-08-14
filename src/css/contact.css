@@ -1,0 +1,107 @@
+/* * {
+  overflow-x: hidden;
+} */
+.top {
+  color: #40003a;
+  font-weight: 530;
+  font-size: 200px;
+  line-height: 300px;
+  letter-spacing: -21px;
+  padding-left: 44px;
+  font-family: "Alan Sans", sans-serif;
+  margin-left: 43px;
+}
+.box {
+  height: 200px;
+  width: 100%;
+  background-color: #ff4400;
+  color: #eeeeee;
+}
+.left-side-image {
+  margin-left: 0;
+  padding: 0 90px;
+}
+
+.left-side-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+.my-placeholder {
+  position: absolute;
+  top: 70%;
+  left: 13px;
+  transform: translatey(-50%);
+  z-index: 1;
+  pointer-events: none;
+  font-size: 20px;
+  color: gray;
+  font-size: 23px;
+}
+@media (max-width: 992px) {
+  .form {
+    margin-top: 22px;
+    padding: 0 80px;
+  }
+  .form h2 {
+    color: red !important;
+  }
+
+  .navbar {
+    display: none;
+  }
+}
+h1 {
+  font-size: 60px;
+  font-weight: 670;
+  margin-left: 90px;
+
+  font-family: "Alan Sans", sans-serif;
+  margin-top: 30px;
+}
+.images {
+  margin-left: 95px;
+}
+.text {
+  margin-left: 50px;
+  color: #40003a;
+  font-size: 23px;
+
+  font-family: "Alan Sans", sans-serif;
+}
+.right-icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background-color: #40003a;
+  color: white;
+}
+.btn {
+  border: none;
+}
+.right-icons:hover {
+  background-color: #e64f06;
+}
+.text .text:hover {
+  color: #e64f06;
+}
+.card-title {
+  color: #40003a;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Alan Sans", sans-serif;
+}
+.card-text {
+  color: #3f3f3f;
+  font-family: "Alan Sans", sans-serif;
+  font-size: 20px;
+}
+.para {
+  margin-left: 60px;
+}

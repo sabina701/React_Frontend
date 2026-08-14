@@ -1,0 +1,29 @@
+.my-header-container {
+  display: flex;
+  background-color: var(--primary-color);
+  color: white;
+  min-height: 90px;
+  /* width: 100%; */
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
+  box-shadow: 2px 4px 4px #242424;
+  /* margin: 0 0 0 0; */
+
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+  }
+  ul {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+  }
+  nav ul li {
+    font-size: 1.3rem;
+  }
+  nav ul li:hover {
+    color: #242424;
+  }
+}

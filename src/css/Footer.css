@@ -1,0 +1,52 @@
+.footer-container {
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+h2 {
+  font-weight: bold;
+}
+p {
+  color: #d3d3d3;
+  font-size: 1.2rem;
+}
+a {
+  color: #d3d3d3;
+  text-decoration: none;
+}
+
+.link {
+  height: 50px;
+  width: 60px;
+  background-color: #f50537;
+  border-radius: 50%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+.icon {
+  color: #f50537;
+  font-size: 1.2rem;
+}
+.my-input input {
+  height: 68px;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.paper-aeroplane-icons {
+  height: 68px;
+  width: 18%;
+  background-color: #f50537;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}

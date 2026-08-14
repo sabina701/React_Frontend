@@ -1,0 +1,42 @@
+.parent-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-content: center;
+  z-index: 3;
+}
+
+.child-container {
+  background: white;
+  padding: 1rem 1.5rem;
+  color: black;
+  border-radius: 8px;
+  width: 350px; /* optional fixed width */
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* reduced from 12px */
+}
+
+label {
+  font-size: 16px; /* slightly smaller */
+  font-weight: 500;
+}
+
+input {
+  border: 1px dashed black;
+  padding: 8px; /* reduced from 10px */
+  outline: none;
+}
+.register-form span {
+  color: red;
+  font-size: 13px;
+  margin-top: -2px;
+}
+.register-form p {
+  margin: 0; /* removes extra space around Show/Hide */
+  font-size: 14px;
+}

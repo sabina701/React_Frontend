@@ -1,0 +1,44 @@
+.parent-login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  display: grid;
+  place-content: center;
+  z-index: 3;
+  backdrop-filter: blur(2px);
+
+  h2 {
+    color: var(--primary-color);
+    font-weight: 900;
+    align-self: center;
+  }
+
+  input {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+  }
+  .child-login {
+    background-color: white;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: black;
+    position: relative;
+  }
+  span {
+    color: rgba(10, 50, 255, 0.8);
+    text-decoration: underline;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  label {
+    font-size: 1.2rem;
+  }
+}

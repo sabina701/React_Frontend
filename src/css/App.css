@@ -1,0 +1,77 @@
+.main-card {
+  width: 250px;
+  height: 400px; /* all cards same height */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.card-images {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.main-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* title - 2 lines */
+.main-card .card-title {
+  font-size: 1.2rem !important;
+  font-weight: 700;
+  /* line-height: 1; */
+  height: 42px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+/* description - 2 lines visible */
+.main-card .card-text {
+  font-size: 1rem;
+  line-height: 1.3;
+  /* height: 42px; */
+  /* overflow: hidden; */
+  color: #444 !important;
+  margin-bottom: 8px;
+}
+
+/* smaller price */
+.price {
+  font-size: 20px !important;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* buttons always visible */
+.btns {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-btn,
+.wishlist-btn {
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.cart-btn {
+  background: #437c90;
+}
+
+.wishlist-btn {
+  background: palevioletred;
+  margin-left: 0;
+}

@@ -1,0 +1,13 @@
+.my-card {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+.category-image {
+  height: 200px;
+  width: 250px;
+  padding: 20px;
+}
