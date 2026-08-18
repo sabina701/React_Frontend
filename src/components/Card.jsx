@@ -12,11 +12,7 @@ const Card = ({ product }) => {
 
   return (
     <div className="card main-card" onClick={handleClick}>
-      <img
-        src={product.images?.[1] || product.images?.[0]}
-        className="card-img-top card-images"
-        alt={product.title}
-      />
+      <img src={product.images[0]} alt={product.title} />
 
       <div className="card-body">
         <h5 className="card-title">

@@ -100,6 +100,7 @@ const Register = ({ show }) => {
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               {...register("password")}
+              className="w-100"
             />
             <br />
             <span>{errors.password?.message}</span>
@@ -125,6 +126,7 @@ const Register = ({ show }) => {
               type={confirmPassword ? "text" : "password"}
               placeholder="Enter your confirm password"
               {...register("confirmPassword")}
+              className="w-100"
             />
             <br />
             <span>{errors.confirmPassword?.message}</span>

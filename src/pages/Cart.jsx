@@ -22,7 +22,7 @@ const Cart = () => {
                   <tr key={product.id}>
                     <td className="align-middle">
                       <img
-                        src={product.images[0] || product.images[1]}
+                        src={product.images?.[0] || product.images?.[1]}
                         className="image"
                         alt={product.title}
                       />

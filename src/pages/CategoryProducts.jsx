@@ -39,19 +39,21 @@ const CategoryProducts = () => {
 
   return (
     <>
-      <div className="container categoryProduct-container">
-        {products.slice(0, more).map((product) => (
-          <Card key={product.id} product={product} />
-        ))}
-      </div>
+      <div className="container-fluid">
+        <div className="container categoryProduct-container">
+          {products.slice(0, more).map((product) => (
+            <Card key={product.id} product={product} />
+          ))}
+        </div>
 
-      <div className="button-container my-btn">
-        <button
-          className="btn btn-primary categoryProduct-button mb-5"
-          onClick={() => setMore((prev) => prev + 4)}
-        >
-          Load More
-        </button>
+        <div className="button-container my-btn">
+          <button
+            className="btn btn-primary categoryProduct-button mb-5"
+            onClick={() => setMore((prev) => prev + 4)}
+          >
+            Load More
+          </button>
+        </div>
       </div>
     </>
   );
