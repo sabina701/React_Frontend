@@ -1,11 +1,14 @@
+// src/components/header/Navlink.jsx
 import React from "react";
 import { NavLink as Nav } from "react-router-dom";
 
-const Navlink = () => {
+const Navlink = ({ menuOpen }) => {
   return (
-    <nav>
+    <nav className={menuOpen ? "nav-open" : ""}>
       <ul>
-        <li> <Nav to="/">Home</Nav></li>
+        <li>
+          <Nav to="/">Home</Nav>
+        </li>
         <li>
           <Nav to="/products">Products</Nav>
         </li>
