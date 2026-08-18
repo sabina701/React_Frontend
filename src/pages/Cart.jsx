@@ -5,11 +5,9 @@ import { BtnContext } from "../components/context/BtnContext";
 const Cart = () => {
   const { state, dispatch } = useContext(BtnContext);
 
-  console.log(state.cart);
-
   return (
     <>
-      <h2>Products in Cart</h2>
+      <h2 className="ms-5">Products in Cart</h2>
 
       <div className="container">
         {state.cart.length === 0 ? (
