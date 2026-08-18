@@ -24,7 +24,7 @@ A frontend e-commerce web application built with **React 19** and **Vite**, feat
 
 ### Login
 
-![Login](./screenshots/Login.jpg)
+![Login](./screenshots/login.jpg)
 
 ## ✨ Features
 
