@@ -10,7 +10,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="my-header-container">
+    <div className="my-header-container ">
       <Logo />
       <SearchBar />
       <Navlink menuOpen={menuOpen} />
