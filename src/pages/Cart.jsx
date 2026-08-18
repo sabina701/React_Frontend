@@ -7,9 +7,12 @@ const Cart = () => {
 
   return (
     <>
-      <h2 className="ms-5">Products in Cart</h2>
-
       <div className="container">
+        <div style={{ marginTop: "24px", marginBottom: "24px" }}>
+          {" "}
+          <h2>Products in Cart</h2>
+        </div>
+
         {state.cart.length === 0 ? (
           <p className="text-black">Nothing in the cart</p>
         ) : (
