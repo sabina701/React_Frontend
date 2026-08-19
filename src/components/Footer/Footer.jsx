@@ -12,16 +12,27 @@ const Footer = () => {
           </p>
           <div className="social-links">
             <div className="link">
-              <i class="bi bi-facebook"></i>
+              <a href="https://www.facebook.com">
+                <i class="bi bi-facebook"></i>
+              </a>
             </div>
             <div className="link">
-              <i class="bi bi-linkedin"></i>
+              <a href="https://www.linkedin.com">
+                {" "}
+                <i class="bi bi-linkedin"></i>
+              </a>
             </div>
             <div className="link">
-              <i class="bi bi-twitter"></i>
+              <a href="https://www.twitter.com">
+                {" "}
+                <i class="bi bi-twitter"></i>
+              </a>
             </div>
             <div className="link">
-              <i class="bi bi-google"></i>
+              <a href="https://www.google.com">
+                {" "}
+                <i class="bi bi-google"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -29,19 +40,19 @@ const Footer = () => {
           <h2>Quick Link</h2>
           <div className="py-3">
             <p>
-              <a href="">About Us</a>
+              <a href="/">Home</a>
             </p>
             <p>
-              <a href="">Classes</a>
+              <a href="/products">Products</a>
             </p>
             <p>
-              <a href="">Support</a>
+              <a href="/category">Category</a>
             </p>
             <p>
-              <a href="">Blog Posts</a>
+              <a href="/about">About Us</a>
             </p>
             <p>
-              <a href="">Contact Us</a>
+              <a href="/contact">Contact Us</a>
             </p>
           </div>
         </div>
