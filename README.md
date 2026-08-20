@@ -4,7 +4,7 @@ A frontend e-commerce web application built with **React 19** and **Vite**, feat
 
 ---
 
-## 🖥️ Live Demo
+## 🖥️ LIVE DEMO
 
 👉 [timeless-collection-9dkf-md1dvzav0-sabina7.vercel.app](https://timeless-collection-1cc5080id-sabina7.vercel.app/)
 
