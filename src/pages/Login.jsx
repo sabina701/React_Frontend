@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Login.css";
+import { toast } from "react-toastify";
 import { useState, useRef, useEffect } from "react";
 
 const Login = ({ show }) => {
@@ -13,12 +14,37 @@ const Login = ({ show }) => {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     if (userInput.username === "" || userInput.password === "") {
       setError(true);
+      return;
     }
+    setError(false);
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const typedEmail = userInput.username.trim().toLowerCase();
+    const typedPassword = userInput.password.trim();
+
+    const matchedUser = users.find(
+      (u) => u.firstName.trim().toLowerCase() === typedEmail,
+    );
+
+    if (!matchedUser) {
+      toast.error("Please register first");
+      return;
+    }
+
+    if (matchedUser.password !== typedPassword) {
+      toast.error("Incorrect password");
+      return;
+    }
+
+    toast.success("Login successful!");
+    console.log("Logged in:", matchedUser);
+    show(false);
   }
 
   useEffect(() => {

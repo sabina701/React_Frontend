@@ -2,21 +2,26 @@ import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
 import "../css/Register.css";
+
 const Register = ({ show }) => {
   const userSchema = yup.object({
     firstName: yup
       .string()
       .min(3, "Minimum 3 characters")
       .required("This field cannot be empty"),
+
     lastName: yup
       .string()
       .min(4, "Minimum 4 characters")
       .required("This field cannot be empty"),
+
     email: yup
       .string()
       .email("Please enter a valid email address")
       .required("This field cannot be empty"),
+
     password: yup
       .string()
       .min(8, "password must be at least 8 characters")
@@ -27,32 +32,59 @@ const Register = ({ show }) => {
         "password must contain at least one special characters",
       )
       .required("password is required"),
+
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password")], "password must match")
       .required("confirm password required"),
   });
+
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm({
     resolver: yupResolver(userSchema),
   });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const alreadyExists = users.some((u) => u.email === data.email);
+
+    if (alreadyExists) {
+      toast.error("An account with this email already exists");
+      return;
+    }
+
+    users.push(data);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    toast.success("Registered successfully! Please login.");
+
+    show(false);
+  };
+
   const [showPassword, setShowPassword] = useState(false);
+
   const [confirmPassword, setConfirmPassword] = useState(false);
+
   const modelRef = useRef(null);
+
   useEffect(() => {
     function handleModel(event) {
       if (modelRef.current && !modelRef.current.contains(event.target)) {
         show(false);
       }
     }
+
     document.addEventListener("mousedown", handleModel);
-    return () => document.removeEventListener("mousedown", handleModel);
-  }, []);
+
+    return () => {
+      document.removeEventListener("mousedown", handleModel);
+    };
+  }, [show]);
 
   return (
     <div className="parent-container">
@@ -62,7 +94,12 @@ const Register = ({ show }) => {
           className="register-form"
           ref={modelRef}
         >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <p
               style={{
                 alignSelf: "flex-end",
@@ -70,47 +107,69 @@ const Register = ({ show }) => {
                 fontSize: "18px",
                 color: "black",
                 position: "absolute",
+                cursor: "pointer",
               }}
               onClick={() => show(false)}
             >
               X
             </p>
           </div>
+
           <h2>Register</h2>
 
+          {/* First Name */}
           <label>First Name</label>
+
           <input type="text" placeholder="john" {...register("firstName")} />
+
           <span>{errors.firstName?.message}</span>
 
+          {/* Last Name */}
           <label>Last Name</label>
+
           <input type="text" placeholder="Doe" {...register("lastName")} />
+
           <span>{errors.lastName?.message}</span>
 
+          {/* Email */}
           <label>Email</label>
+
           <input
             type="email"
             placeholder="johnDoe@gmail.com"
             {...register("email")}
           />
+
           <span>{errors.email?.message}</span>
+
+          {/* Password */}
           <div>
             <label>Password</label>
             <br />
+
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               {...register("password")}
               className="w-100"
             />
+
             <br />
+
             <span>{errors.password?.message}</span>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <p
                 style={{
-                  color: "black",
                   alignSelf: "flex-end",
                   color: "blue",
                   textDecoration: "underline",
+                  cursor: "pointer",
                 }}
                 onClick={() => setShowPassword((prev) => !prev)}
               >
@@ -119,24 +178,34 @@ const Register = ({ show }) => {
             </div>
           </div>
 
+          {/* Confirm Password */}
           <div>
             <label>Confirm Password</label>
             <br />
+
             <input
               type={confirmPassword ? "text" : "password"}
               placeholder="Enter your confirm password"
               {...register("confirmPassword")}
               className="w-100"
             />
+
             <br />
+
             <span>{errors.confirmPassword?.message}</span>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <p
                 style={{
-                  color: "black",
                   alignSelf: "flex-end",
                   color: "blue",
                   textDecoration: "underline",
+                  cursor: "pointer",
                 }}
                 onClick={() => setConfirmPassword((prev) => !prev)}
               >
@@ -145,7 +214,9 @@ const Register = ({ show }) => {
             </div>
           </div>
 
-          <button className="btn btn-primary w-100">Register</button>
+          <button type="submit" className="btn btn-primary w-100">
+            Register
+          </button>
         </form>
       </div>
     </div>
