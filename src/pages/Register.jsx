@@ -48,6 +48,8 @@ const Register = ({ show }) => {
   });
 
   const onSubmit = (data) => {
+    console.log("FORM DATA:", data);
+
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
     const alreadyExists = users.some((u) => u.email === data.email);
@@ -60,6 +62,8 @@ const Register = ({ show }) => {
     users.push(data);
 
     localStorage.setItem("users", JSON.stringify(users));
+
+    console.log("SAVED USERS:", localStorage.getItem("users"));
 
     toast.success("Registered successfully! Please login.");
 
