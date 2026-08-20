@@ -44,6 +44,10 @@ const Login = ({ show }) => {
 
     toast.success("Login successful!");
     console.log("Logged in:", matchedUser);
+    setUserInput({
+      username: "",
+      password: "",
+    });
     show(false);
   }
 
@@ -89,6 +93,7 @@ const Login = ({ show }) => {
           <input
             type="text"
             id="username"
+            value={userInput.username}
             placeholder="Enter username"
             onChange={(event) => {
               setUserInput((prev) => ({
@@ -110,6 +115,7 @@ const Login = ({ show }) => {
           <input
             placeholder="Enter your password"
             type={showPassword ? "text" : "password"}
+            value={userInput.password}
             onChange={(event) => {
               setUserInput((prev) => ({
                 ...prev,
