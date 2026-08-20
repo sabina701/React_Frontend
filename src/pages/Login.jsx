@@ -14,22 +14,24 @@ const Login = ({ show }) => {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
     if (userInput.username === "" || userInput.password === "") {
       setError(true);
       return;
     }
+
     setError(false);
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const typedEmail = userInput.username.trim().toLowerCase();
+    const typedUsername = userInput.username.trim().toLowerCase();
+
     const typedPassword = userInput.password.trim();
 
     const matchedUser = users.find(
-      (u) => u.firstName.trim().toLowerCase() === typedEmail,
+      (user) => user.firstName.trim().toLowerCase() === typedUsername,
     );
 
     if (!matchedUser) {
@@ -43,11 +45,14 @@ const Login = ({ show }) => {
     }
 
     toast.success("Login successful!");
+
     console.log("Logged in:", matchedUser);
+
     setUserInput({
       username: "",
       password: "",
     });
+
     show(false);
   }
 
@@ -60,8 +65,10 @@ const Login = ({ show }) => {
 
     document.addEventListener("mousedown", handleModel);
 
-    return () => document.removeEventListener("mousedown", handleModel);
-  }, []);
+    return () => {
+      document.removeEventListener("mousedown", handleModel);
+    };
+  }, [show]);
 
   return (
     <div className="container-fluid parent-login">
@@ -70,7 +77,12 @@ const Login = ({ show }) => {
         ref={modelRef}
         onSubmit={handleSubmit}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
           <p
             style={{
               alignSelf: "flex-end",
@@ -78,12 +90,14 @@ const Login = ({ show }) => {
               fontSize: "18px",
               color: "black",
               position: "absolute",
+              cursor: "pointer",
             }}
             onClick={() => show(false)}
           >
             X
           </p>
         </div>
+
         <h2 className="close-btn">Login</h2>
 
         <div>
@@ -100,19 +114,28 @@ const Login = ({ show }) => {
                 ...prev,
                 username: event.target.value,
               }));
+
               setError(false);
             }}
           />
 
-          <p style={{ color: "red", marginTop: "6px", minHeight: "20px" }}>
+          <p
+            style={{
+              color: "red",
+              marginTop: "6px",
+              minHeight: "20px",
+            }}
+          >
             {error ? "Please Enter your username" : ""}
           </p>
         </div>
+
         <div>
           <label htmlFor="password">Password</label>
           <br />
 
           <input
+            id="password"
             placeholder="Enter your password"
             type={showPassword ? "text" : "password"}
             value={userInput.password}
@@ -121,28 +144,44 @@ const Login = ({ show }) => {
                 ...prev,
                 password: event.target.value,
               }));
+
               setError(false);
             }}
           />
-          {
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <p
-                style={{
-                  alignSelf: "flex-end",
-                  color: "blue",
-                  textDecoration: "underline",
-                }}
-                onClick={() => setShowPassword((prev) => !prev)}
-              >
-                {showPassword ? "Hide" : "show"}
-              </p>
-            </div>
-          }
-          <p style={{ color: "red", marginTop: "6px", minHeight: "20px" }}>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <p
+              style={{
+                alignSelf: "flex-end",
+                color: "blue",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? "Hide" : "Show"}
+            </p>
+          </div>
+
+          <p
+            style={{
+              color: "red",
+              marginTop: "6px",
+              minHeight: "20px",
+            }}
+          >
             {error ? "Please Enter your password" : ""}
           </p>
         </div>
-        <button className="btn btn-primary">Login</button>
+
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
       </form>
     </div>
   );

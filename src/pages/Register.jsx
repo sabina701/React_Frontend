@@ -47,12 +47,15 @@ const Register = ({ show }) => {
     resolver: yupResolver(userSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log("FORM DATA:", data);
+  const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
 
+  const modelRef = useRef(null);
+
+  const onSubmit = (data) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const alreadyExists = users.some((u) => u.email === data.email);
+    const alreadyExists = users.some((user) => user.email === data.email);
 
     if (alreadyExists) {
       toast.error("An account with this email already exists");
@@ -63,18 +66,10 @@ const Register = ({ show }) => {
 
     localStorage.setItem("users", JSON.stringify(users));
 
-    console.log("SAVED USERS:", localStorage.getItem("users"));
-
     toast.success("Registered successfully! Please login.");
 
     show(false);
   };
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const [confirmPassword, setConfirmPassword] = useState(false);
-
-  const modelRef = useRef(null);
 
   useEffect(() => {
     function handleModel(event) {
@@ -121,21 +116,18 @@ const Register = ({ show }) => {
 
           <h2>Register</h2>
 
-          {/* First Name */}
           <label>First Name</label>
 
           <input type="text" placeholder="john" {...register("firstName")} />
 
           <span>{errors.firstName?.message}</span>
 
-          {/* Last Name */}
           <label>Last Name</label>
 
           <input type="text" placeholder="Doe" {...register("lastName")} />
 
           <span>{errors.lastName?.message}</span>
 
-          {/* Email */}
           <label>Email</label>
 
           <input
@@ -146,7 +138,6 @@ const Register = ({ show }) => {
 
           <span>{errors.email?.message}</span>
 
-          {/* Password */}
           <div>
             <label>Password</label>
             <br />
@@ -177,12 +168,11 @@ const Register = ({ show }) => {
                 }}
                 onClick={() => setShowPassword((prev) => !prev)}
               >
-                {showPassword ? "show" : "Hide"}
+                {showPassword ? "Hide" : "Show"}
               </p>
             </div>
           </div>
 
-          {/* Confirm Password */}
           <div>
             <label>Confirm Password</label>
             <br />
@@ -213,7 +203,7 @@ const Register = ({ show }) => {
                 }}
                 onClick={() => setConfirmPassword((prev) => !prev)}
               >
-                {confirmPassword ? "Hide" : "show"}
+                {confirmPassword ? "Hide" : "Show"}
               </p>
             </div>
           </div>
